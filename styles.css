@@ -1,0 +1,335 @@
+
+/* General */
+:root {
+    --color-income-bg: #f0fdf4;
+    --color-income-border: #55b395;
+    --color-income-value: #016630;
+    --color-expense-bg: #fef2f2;
+    --color-expense-border: #ffc9c9;
+    --color-expense-value: #9f0712;
+    --color-balance-bg: #eff6ff;
+    --color-balance-border: #bedbff;
+    --color-balance-value: #193cb8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+header {
+    text-align: center;
+    width: 100%;
+    display: grid;
+}
+body {
+    font-family: ui-sans-serif, system-ui, sans-serif, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #1a1a1a;
+    background-color: #ffffff;
+}
+
+
+/* Header */
+.title h1 {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #1a1a1a;
+}
+.title p {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* Main Content */
+.main-content {
+    margin-top: 0;
+    background-color: #ffffff;
+    padding: 16px;
+}
+
+
+/* Summary - Income, Outcome and Balance */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+}
+.stat-card {
+    border: 1px solid;
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.stat-card-income {
+    background-color: var(--color-income-bg);
+    border-color: var(--color-income-border);
+}
+.stat-card-expense {
+    background-color: var(--color-expense-bg);
+    border-color: var(--color-expense-border);
+}
+.stat-card-balance {
+    background-color: var(--color-balance-bg);
+    border-color: var(--color-balance-border);
+}
+.stat-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-top: 16px;
+}
+.stat-card-header h2,
+.stat-card-income h2,
+.stat-card-expense h2,
+.stat-card-balance h2 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+}
+.stat-card-income h2 {
+    color: var(--color-income-value);
+}
+.stat-card-expense h2 {
+    color: var(--color-expense-value);
+}
+.stat-card-balance h2 {
+    color: var(--color-balance-value);
+}
+.stat-icon {
+    width: 16px;
+    height: 16px;
+}
+.stat-card-amount {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 24px;
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 16px;
+    vertical-align: bottom;
+}
+.stat-card-income .stat-card-amount {
+    color: var(--color-income-value);
+}
+.stat-card-expense .stat-card-amount {
+    color: var(--color-expense-value);
+}
+.stat-card-balance .stat-card-amount {
+    color: var(--color-balance-value);
+}
+
+
+
+
+/* Form and History Boxes*/
+.box {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+    padding: 0 24px 10px 24px;
+}
+.box h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 16px;
+    font-size: 14px;
+    margin: 10px 0 16px 0;
+}
+
+
+
+
+/* Form Style */
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+}
+.transaction-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.form-row-two {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+.form-row-three {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+.form-group label {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 12px;
+    margin-bottom: 8px;
+}
+.form-group input,
+.form-group textarea,
+.select-field {
+    background-color: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 14px;
+    line-height: 1.0;
+    width: 100%;
+    color: #1a1a1a;
+    box-sizing: border-box;
+}
+.form-group input,
+.form-group textarea {
+    height: 36px;
+}
+.select-field {
+    height: 36px;
+    appearance: none;
+    background-image: url("img/iconDropdown.svg");
+    background-position: right 8px center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    padding-right: 32px;
+    cursor: pointer;
+}
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    gap: 8px;
+    margin-left: 4px;
+}
+.checkbox {
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+    
+}
+.checkbox:checked {
+    background-color: #016630;
+    border-color: #016630;
+}
+.checkbox-group label {
+    font-size: 14px;
+    font-weight: 500;
+}
+.submit-btn {
+    background-color: #1a1a1a;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    height: 36px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    outline: none;
+}
+.submit-btn:hover,
+.submit-btn:focus {
+    background-color: #333333d8;
+}
+
+
+/* History Style - Table*/
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 4px;
+    font-family: ui-sans-serif, system-ui, sans-serif, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    border-radius: 8px;
+    background-color: #fff;
+    text-align: center;
+}
+thead th {
+    background-color: #fff;
+    font-weight: 600;
+    color: #1a1a1a;
+    border-bottom: 1px solid #e5e7eb;
+}
+tbody td {
+    background-color: #fff;
+    padding: 4px 16px;
+    line-height: 1.0;
+    color: #1a1a1a;
+    border-bottom: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+    vertical-align: top;
+    word-break: break-word;
+}
+th + th {
+  padding-left: 10px;
+}
+td + td {
+  padding-left: 10px;
+}
+
+.cell-income {
+    color: var(--color-income-value);
+    font-weight: bold;
+}
+.cell-expense {
+    color: var(--color-expense-value);
+    font-weight: bold;
+}
+
+.close {
+    display: inline-block;
+    font-size: 18px;
+    font-weight: bold;
+    color: #d32f2f;
+    cursor: pointer;
+    padding: 2px 2px;
+    border-radius: 4px;
+    transition: background 0.2s, color 0.2s;
+    user-select: none;
+}
+.close:hover, .close:focus {
+    background: #ffeaea;
+    color: #a30000;
+    outline: none;
+}
+
+
+
+
+
+/* Error banner and loading spinner */
+#errorBanner {
+    background: #d32f2f;
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 100;
+}
+#loadingSpinner {
+    text-align: center;
+    color: #193cb8;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+

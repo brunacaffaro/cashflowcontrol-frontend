@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Caixa - Restaurante ABC</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="title">
+            <h1>Fluxo de Caixa - Restaurante ABC</h1>
+            <p>Gerencie as entradas e saídas de dinheiro</p>
+        </div>      
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content" role="main">
+    <div id="loadingSpinner" style="display:none">Carregando...</div>
+
+        <!-- Balance Cards: Income, Expense, Balance -->
+        <section class="stats-grid">
+            <div class="stat-card stat-card-income">
+                <div class="stat-card-header">
+                    <h2>Total de Entradas</h2>
+                    <img src="img/iconIncome.svg" alt="Entradas" class="stat-icon">
+                </div>
+                <div class="stat-card-amount">R$ 0,00</div>
+            </div>
+
+            <div class="stat-card stat-card-expense">
+                <div class="stat-card-header">
+                    <h2>Total de Saídas</h2>
+                    <img src="img/iconExpense.svg" alt="Saídas" class="stat-icon">
+                </div>
+                <div class="stat-card-amount">R$ 0,00</div>
+            </div>
+                
+            <div class="stat-card stat-card-balance">
+                <div class="stat-card-header">
+                    <h2>Saldo Atual</h2>
+                    <img src="img/iconBalance.svg" alt="Balance Icon" class="stat-icon">
+                </div>
+                <div class="stat-card-amount">R$ 0,00</div>
+            </div>
+        </section>
+
+        
+        <!-- Error Banner placed above the form for visibility -->
+        <div id="errorBanner" style="display:none"></div>
+        <!-- Transaction Form -->
+        <section class="box">
+            <h2>Novo Lançamento</h2>
+            <form class="transaction-form" id="transactionForm" aria-label="Formulário de novo lançamento">
+                <div class="form-row-three">
+                    <div class="form-group">
+                        <label for="newInput">Nome</label>
+                        <input type="text" id="newInput" placeholder="Lançamento (máx. 50 caracteres)" required maxlength="50" />
+                    </div>
+                    <div class="form-group">
+                        <label for="newDate">Data</label>
+                        <input type="date" id="newDate" required min="2015-01-01" max="2100-12-31" />
+                    </div>
+                    <div class="form-group">
+                        <label for="newAmount">Valor (R$)</label>
+                        <input type="number" id="newAmount" placeholder="0,00" step="0.01" min="0" max="9999999.99" required />
+                    </div>
+                </div>
+                <div class="form-row-three">
+                    <div class="form-group">
+                        <label for="newType">Tipo</label>
+                        <select id="newType" class="select-field" required>
+                            <option value="expense">Saída</option>
+                            <option value="income">Entrada</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="newCategory">Categoria</label>
+                        <select id="newCategory" class="select-field" required>
+                            <!-- Options will be populated by scripts.js -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="newComment">Informação Adicional</label>
+                        <input type="text" id="newComment" placeholder="(Opcional - máx. 50 caracteres)" maxlength="50" />
+                    </div>
+                </div>
+                <div class="form-row-two">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="newStatus" class="checkbox" />
+                        <label for="newStatus">Lançado e baixado no sistema Inffel</label>
+                    </div>
+                    <button type="submit" class="submit-btn">Adicionar Lançamento</button>
+                </div>
+            </form>
+        </section>
+    <!-- errorBanner moved above, duplicate removed -->
+
+        <!-- Transaction History -->
+        <section class="box">
+            <h2>Histórico de Lançamentos</h2>
+            <table id="mainTable" aria-label="Histórico de lançamentos">
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Valor</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Categoria</th>
+                        <th scope="col">Comentário</th>
+                        <th scope="col">Status Inffel</th>
+                        <th scope="col"><img src="img/iconBin.svg" width="16" height="16" alt="Ações" /></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- JS will populate rows here -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+<script>
+
+// Set default date to today for the date input and restrict to valid range
+document.addEventListener('DOMContentLoaded', function() {
+    const dateInput = document.getElementById('newDate');
+    if (dateInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        dateInput.value = `${yyyy}-${mm}-${dd}`;
+        dateInput.min = '2000-01-01';
+        dateInput.max = '2500-12-31';
+        dateInput.addEventListener('input', function() {
+            // Prevent impossible dates (e.g., 31/02/2025)
+            const val = dateInput.value;
+            if (val) {
+                const d = new Date(val);
+                if (isNaN(d.getTime()) || val !== d.toISOString().slice(0,10)) {
+                    dateInput.setCustomValidity('Data inválida!');
+                } else {
+                    dateInput.setCustomValidity('');
+                }
+            }
+        });
+    }
+});
+</script>
+
+<script src="scripts.js"></script>
+</body>
+</html>

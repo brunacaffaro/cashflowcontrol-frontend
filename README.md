@@ -1,12 +1,12 @@
 # 💰 Cashflow Tracker - Frontend
 
-## 1. Project Title
+## 1. Título do Projeto
 
 **Cashflow Tracker (Frontend)** - Interface visual responsável por gerenciar de forma simples o fluxo de caixa de um pequeno restaurante familiar, permitindo o controle das entradas e saídas em dinheiro de forma organizada e acessível.
 
 ---
 
-## 2. Project Description
+## 2. Descrição do Projeto
 
 Este é o frontend de uma aplicação de fluxo de caixa destinada aos **gestores principais de um restaurante**, desenvolvida como **Single Page Application (SPA)** com **HTML, CSS e JavaScript puro**. A proposta é auxiliar no controle das movimentações financeiras feitas em espécie, que não são automaticamente sincronizadas com o sistema oficial do restaurante.
 
@@ -20,7 +20,7 @@ O frontend foi projetado **exclusivamente para uso em computadores desktop**, co
 
 ---
 
-## 3. Table of Contents
+## 3. Tabela de Conteúdos
 
 1. [Project Title](#1-project-title)
 2. [Project Description](#2-project-description)
@@ -31,7 +31,7 @@ O frontend foi projetado **exclusivamente para uso em computadores desktop**, co
 
 ---
 
-## 4. Installation and Setup
+## 4. Instalação e Setup
 
 ### Requisitos:
 
@@ -47,7 +47,7 @@ Passo a passo:
 
 ---
 
-## 5. How to Use
+## 5. Como utilizar
 
 ### Funcionalidades principais:
 
@@ -77,7 +77,7 @@ Essas mensagens e comportamentos são exibidos automaticamente pelo navegador co
 ---
 ---
 
-## 6. Test Plan
+## 6. Plano de Testes
 
 > A aplicação foi projetada exclusivamente para **dispositivos desktop**, com foco em navegadores modernos como **Google Chrome** e **Microsoft Edge**.
 
